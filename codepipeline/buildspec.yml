@@ -12,7 +12,7 @@ phases:
             - aws s3 sync . s3://servicesatalog-deployedtemplates-$ACCID/ --delete --exclude "*" --include "*.json" --include "*.yml"
             - echo "S3 Upload Complete, updating cloudformation now..."
             - /bin/bash codepipeline/run-pipelineupdate.sh
-            -/bin/bash codepipeline/run-cloudformationupdate.sh
+            - /bin/bash codepipeline/run-cloudformationupdate.sh
     post_build:
         commands:
             - echo "Deploy complete"
